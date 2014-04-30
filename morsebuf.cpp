@@ -2,8 +2,7 @@
 
 #include <string>
 
-template<class Morse>
-using morse_int_type = typename morse_code_buffer<Morse>::int_type;
+using morse_int_type = morse_code_buffer<>::int_type;
 
 template<>
 morse_code_buffer<>::morse_code_buffer(const std::string& path)
@@ -12,7 +11,7 @@ morse_code_buffer<>::morse_code_buffer(const std::string& path)
 }
 
 template<>
-morse_code_buffer<>::int_type morse_code_buffer<>::overflow(morse_code_buffer<>::int_type c)
+morse_int_type morse_code_buffer<>::overflow(morse_int_type c)
 {
     using Morse = morse_code_buffer<>::parser_type;
     if (c == traits_type::eof())
