@@ -1,7 +1,7 @@
 all: morse.exe
 
 morse.exe: Parser.o algorithm.o morsebuf.o
-	g++ -o morse.exe $< $(word 2,$^) $(word 3,$^)
+	g++ -o morse $< $(word 2,$^) $(word 3,$^)
 
 Parser.o algorithm.o morsebuf.o: Parser.cpp alorithm.cpp morsebuf.cpp
 	g++ -c $< \
