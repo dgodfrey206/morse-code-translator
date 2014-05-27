@@ -1,12 +1,14 @@
+CXX = g++
+
 all: morse.exe
 
 morse.exe: Parser.o algorithm.o morsebuf.o
-	g++ -o morse $< $(word 2,$^) $(word 3,$^)
+	${CXX} -o morse $< $(word 2,$^) $(word 3,$^)
 
 Parser.o algorithm.o morsebuf.o: Parser.cpp alorithm.cpp morsebuf.cpp
-	g++ -c $< \
-	g++ -c $(word 2,$^) \
-	g++ -c $(word 3,$^)
+	${CXX} -c $< \
+	${CXX} -c $(word 2,$^) \
+	${CXX} -c $(word 3,$^)
 
 clean:
 	rm Parser.o algorithm.o morsebuf.o morse.exe
